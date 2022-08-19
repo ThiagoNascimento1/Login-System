@@ -1,10 +1,13 @@
+import { NavBar } from "./components/NavBar";
 import { RouterPages } from "./Routers/Routes";
+import * as C from './styles/styles';
 
 export const App = () => {
 
   return (
-    <div>
+    <C.Container>
+      <NavBar />
       <RouterPages />
-    </div>
+    </C.Container>
   )
 };
