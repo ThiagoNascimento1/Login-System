@@ -1,1 +1,1 @@
-export const baseUrl = 'https://api.google.com';
+export const url = "http://localhost:3000/users";

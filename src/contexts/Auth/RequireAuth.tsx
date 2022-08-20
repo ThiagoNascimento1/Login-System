@@ -6,8 +6,12 @@ export const RequireAuth = ({ children }: { children: JSX.Element }) => {
 
   const auth = useContext(AuthContext);
   if (!auth.user) {
-    return <Login />
+    return (
+      <>
+      <h1 style={{textAlign: "center"}}>Faça login ou cadastre-se para prosseguir!</h1>
+      <Login />
+      </>
+    )
   }
-
   return children;
 };

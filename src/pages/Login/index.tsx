@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthContext';
-import { useApi } from '../../hooks/useApi';
 import * as C  from './styles';
 
 export const Login = () => {
@@ -12,15 +11,15 @@ export const Login = () => {
   const [ email, setEmail ] = useState<string>();
   const [ password, setPassword ] = useState<string>();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email && password) {
-      const isLogged = await auth.signin(email, password);
+      const isLogged = auth.signin(email, password);
 
       if (isLogged) {
         navigate("/");
       } else {
-        alert("usuário ou senha inválido");
+        alert("usuário e/ou senha inválido(s)");
       }
     }
   };
