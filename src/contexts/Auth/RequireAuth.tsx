@@ -8,7 +8,7 @@ export const RequireAuth = ({ children }: { children: JSX.Element }) => {
   if (!auth.user) {
     return (
       <>
-      <h1 style={{textAlign: "center"}}>Faça login ou cadastre-se para prosseguir!</h1>
+      <h1 style={{textAlign: "center", color: "#fff"}}>Faça login ou cadastre-se para prosseguir!</h1>
       <Login />
       </>
     )

@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 50%;
   margin: auto;
   padding: 50px 0;
   display: flex;
@@ -37,7 +38,7 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const Register = styled.div`
+export const Login = styled.div`
   align-self: flex-end;
   color: purple;
   cursor: pointer;

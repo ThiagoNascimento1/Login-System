@@ -9,9 +9,10 @@ export const NavBar = () => {
 
   return (
     <C.Container>
-      {!auth.user && <Link to='/login'>Login</Link>}
-      <Link to='/'>Home</Link>
-      {auth.user && <Link to='/login' onClick={auth.signout}>Sair</Link>}
+      {!auth.user && <Link to='/'>Login</Link>}
+      {!auth.user && <Link to='/register'>Cadastrar-se</Link>}
+      <Link to='/home'>Home</Link>
+      {auth.user && <Link to='/' onClick={auth.signout}>Sair</Link>}
     </C.Container>
   )
 };

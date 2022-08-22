@@ -1,10 +1,16 @@
 {
   "users": [
-      {
-        "id": 1,
-        "name": "Thiago",
-        "email": "tgn450484@gmail.com",
-        "password": "thdev012"
-      }
+    {
+      "name": "thiago",
+      "email": "thiago@gmail.com",
+      "password": "thiago",
+      "id": 1
+    },
+    {
+      "name": "Thiago Nascimento",
+      "email": "thiagonas@gmail.com",
+      "password": "thiago",
+      "id": 2
+    }
   ]
 }

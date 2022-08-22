@@ -1,28 +1,38 @@
-import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/Auth/AuthContext';
+import { url } from '../../data/urls';
+import { useFetch } from '../../hooks/useFetch';
+import { User } from '../../types/User';
 import * as C  from './styles';
 
 export const Login = () => {
 
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
+  const { data: users } = useFetch(url);
 
   const [ email, setEmail ] = useState<string>();
   const [ password, setPassword ] = useState<string>();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email && password) {
-      const isLogged = auth.signin(email, password);
 
-      if (isLogged) {
-        navigate("/");
-      } else {
-        alert("usuário e/ou senha inválido(s)");
+    if (email && password) {
+      let isLogged = false;
+      users.map((user: User) => {
+        if (email === user.email && password) {
+          auth.signin(user);
+          isLogged = true;
+          navigate("/home");
+        }
+      });
+      if (!isLogged) {
+        alert("email e/ou senha inválido(s)!");
       }
     }
   };
+
 
   return (
     <C.Container>
@@ -38,6 +48,7 @@ export const Login = () => {
           onChange={e => setPassword(e.target.value)}
         />
         <C.Button>Entrar</C.Button>
+        <C.Register><Link to="/register">Cadastrar-se</Link></C.Register>
       </C.Form>
     </C.Container>
   )
